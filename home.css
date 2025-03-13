@@ -1,0 +1,147 @@
+
+body{
+    background-color: #DAD4CF !important;
+    /* font-family: "Didact Gothic", sans-serif !important; */
+}
+.header .navbar {
+    height: 100px;
+}
+
+.header .navbar-nav .nav-item .nav-link{
+    padding: 1rem;
+}
+.header .navbar-nav .nav-item .nav-link a{
+    font-weight: 500;
+}
+.header-container{
+    z-index: 100;
+    position: fixed;
+}
+.intro-screen{
+    margin-top: 100px;
+}
+.pack-details{
+    margin-top: 100px;
+    /* height: calc(100vh - 100px); */
+}
+
+.slide-image {
+    height: calc(100vh - 100px);
+}
+
+
+
+.destinationas .card .card-img-top:hover{
+    cursor: pointer;
+}
+
+.destinationas .card .card-body .card-text{
+    height: 13vh;
+}
+
+.trending{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.navbar-brand img{ 
+    width: 250px;
+    height: 90px;
+}
+
+.country-container {
+    margin: auto;
+    padding-top: 30px;
+}
+
+
+.day-title {
+    background-color: #BB436A !important;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border-color: #BB436A !important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+.itinerary-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.form-group{
+    width: 50%;
+    padding-right: 1rem;
+}
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+}
+.admin-login .form-group{
+    width: 100%;
+}
+
+.theme-text-color{
+    color:#BB436A !important;
+    font-weight: 600 !important;
+}
+.tabs .active{
+    font-weight:600 !important;
+    color:white !important;
+    background-color: #BB436A !important;
+}
+.booking-details .tab-content{
+    height: 60vh;
+}
+
+
+
+/*Harsha*/
+
+.modal-bg {
+    background-color: #BB436A;
+    color:white;
+}
+
+.modal-body label{
+    font-weight: bold;
+}
+
+@media (min-height:500px) and (max-height:700px){
+    .destinationas .card .card-body .card-text{
+        height: 21vh;
+    }
+}
+@media (min-height:701px) and (max-height:900px){
+    .destinationas .card .card-body .card-text{
+        height: 17vh;
+    }
+}
+
+@media (min-width:1400px) and (max-width:1600px) {
+    .modal-body label{
+        font-size: 12px;
+    }
+    .modal-body  input{
+        font-size: 12px;
+    }
+    button{
+        font-size: 12px;
+    }
+    .modal-body{
+        padding: 10px !important;
+    }
+    h5{
+        font-size: 14px;
+    }
+    .day-title,.font-sizes{
+        font-size: 12px !important;
+    }
+
+}
+

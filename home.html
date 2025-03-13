@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="home-page d-flex flex-column">
+
+        <div class="header-container  top-0 w-100">
+            <div class="header w-100">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 w-100">
+                    <div class="d-flex w-100 justify-content-end">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="#">
+                            <img src="Images/transafrica-logo.png" alt="Logo" height="40">
+                        </a>
+            
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+            
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="tourplan.html">Destinations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact Us</a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="bookings.html">Bookings</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <button type="submit" class="btn btn-primary day-title mx-3" data-bs-toggle="modal" data-bs-target="#login" onclick="validateForm()">Admin Login</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="intro-screen">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="3000">
+                    <img class="d-block slide-image w-100" src="Images/elephant.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fs-2">Africa</h5>
+                        <p class="fs-3">The oldest inhabited continent on Earth</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <img class="d-block slide-image w-100" src="Images/Africa.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block  slide-image w-100" src="Images/sand.jpg" alt="Third slide">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+
+        <div class="destination-container">
+            <div class="card-title text-center trending pt-2">
+                Top Trending Destinations
+            </div>
+            <div class="destinationas d-flex justify-content-center gap-5 p-5">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="Images/Madafascar.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Madagascar</h5>
+                        <p class="card-text">Unique wildlife, baobab trees, pristine beaches, rainforests, biodiversity, lemurs, Avenue of the Baobabs, and coral reefs</p>
+                        <a href="tourplan.html" class="btn btn-primary day-title">Explore </a>
+                    </div>
+                </div>
+                <!-- <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="Images/Nigeria.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Nigeria</h5>
+                        <p class="card-text"> Rich culture, wildlife, stunning landscapes, Obudu Mountain, beaches, Zuma Rock, festivals, Yankari Park, and Lekki Conservation.</p>
+                        <a href="#" class="btn btn-primary">Explore </a>
+                    </div>
+                </div> -->
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="Images/SouthAfrica.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">South Africa</h5>
+                        <p class="card-text">Safari adventures, Kruger National Park, Table Mountain, Cape Town, diverse culture, wine regions, and beaches.</p>
+                        <a href="tourplan.html" class="btn btn-primary day-title">Explore </a>
+                    </div>
+                </div>
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="Images/Kenya.jpg" alt="Card image cap">
+                    <div class="card-body">
+                            <h5 class="card-title">Kenya</h5>
+                            <p class="card-text">Maasai Mara safaris, Great Migration, Mount Kenya, diverse wildlife, stunning landscapes, and cultural heritage.</p>
+                            <a href="tourplan.html" class="btn btn-primary day-title">Explore </a>
+                    </div>
+                </div>
+                <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="Images/Egypt.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Egypt</h5>
+                    <p class="card-text">Pyramids of Giza, Nile River cruises, ancient temples, Red Sea diving, deserts, sphinx, Luxor, and vibrant bazaars.</p>
+                    <a href="tourplan.html" class="btn btn-primary day-title">Explore </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-md" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-bg">
+                <h5 class="modal-title" id="exampleModalLongTitle">Admin Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><a href="Admin.html"></a></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body admin-login">
+                    <form action="">
+                        <div class="d-flex mt-3">
+                            <div class="form-group">
+                                <label for="firstName">Email (or) Username</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div class="form-group">
+                                <label for="lastName">Password</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center  mt-4">
+                            <div>
+                                <button type="button" class="btn btn-secondary mx-3" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                            <div>
+                                <!-- <a class="btn btn-primary day-title mx-3" href="Admin.html">Admin Login</a> -->
+                                <button type="button" class="btn btn-primary day-title mx-3" data-bs-toggle="modal" data-bs-target="#welcome">Admin Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="modal fade  bd-example-modal-md" id="welcome" tabindex="-1" aria-labelledby="welcome" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-bg">
+                <h5 class="modal-title" id="exampleModalLongTitle">Welcome Admin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body admin-login">
+                    <div class="form-group">
+                        <p><b>Welcome to the Admin Dashboard of Tans Africa Safaris.</b></p>  
+                        <p>Manage and monitor bookings, track booking status, and ensure a smooth experience for customers.</p>  
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-primary day-title ps-2" href="bookings.html">Check Bookings</a> 
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
