@@ -499,7 +499,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group">
+                                        <div class="col-6">
                                             <label for="exampleInputEmail1">Starting Date</label>
                                             <input type="date" class="form-control" id="date" aria-describedby="date" value="10-04-2025">
                                           </div>
@@ -649,7 +649,7 @@
                             <button type="button" class="btn btn-secondary close-btn mx-3" data-bs-dismiss="modal">Close</button>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="createNewBooking()">Update</button>
+                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#updated" onclick="createNewBooking()">Update</button>
                         </div>
                     </div>
                 </div>
@@ -667,7 +667,7 @@
                 <p class="text-fs">
                     An email has been sent with the Cost Sheet and Payment Link.
                     <br/><br/>
-                    You can download the cost sheet for your reference by clicking <a href="Images/CostSheet.pdf">here</a>.
+                    You can download the cost sheet for your reference by clicking <a href="Images/CostSheet.pdf" target="_blank">here</a>.
                 </p>
             </div>
         </div>
@@ -1092,7 +1092,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group">
+                                        <div class="col-6">
                                             <label for="exampleInputEmail1">Starting Date</label>
                                             <input type="date" class="form-control" id="date" aria-describedby="date">
                                           </div>
@@ -1242,11 +1242,41 @@
                             <button type="button" class="btn btn-secondary close-btn mx-3" data-bs-dismiss="modal">Close</button>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="createNewBooking()">Create</button>
+                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#created" onclick="createNewBooking()">Create</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="created" tabindex="-1" aria-labelledby="created" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-bg">
+                <h5 class="modal-title" id="exampleModalLongTitle">New Reservation Created</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    The new reservation has been created and an email has been sent.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="updated" tabindex="-1" aria-labelledby="updated" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-bg">
+                <h5 class="modal-title" id="exampleModalLongTitle">Booking Details Updated</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    The booking details has been updated and an email has been sent.</p>
+            </div>
+        </div>
         </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
