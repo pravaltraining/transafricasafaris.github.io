@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Plan</title>
+    <title>Bookings</title>
     <link rel="stylesheet" href="home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,122 +18,120 @@
     <div class="home-page d-flex flex-column cream">
         <div class="header-container  top-0 w-100">
             <div class="header w-100">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 w-100">
-                    <div class="d-flex w-100 justify-content-end">
-                        <!-- Logo -->
+                <nav class="header-navbar navbar w-100 justify-content-between navbar-expand-lg navbar-light bg-light px-5 w-100">
+                    <div class="d-flex header-logo  justify-content-between">
                         <a class="navbar-brand" href="index.html">
                             <img src="Images/transafrica-logo.png" alt="Logo" height="40">
                         </a>
-            
+
+                        
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-            
-                        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                            <ul class="navbar-nav">
+
+                    </div>
+                    <div class="header-links">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav   ">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Admin.html">Home</a>
-                                </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="tourplan.html">Destinations</a>
+                                    <a class="nav-link " href="Admin.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact Us</a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="bookings.html">Bookings</a>
+                                    <a class="nav-link active" href="#">Bookings</a>
                                 </li>
-                                
                             </ul>
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-        <div class="pack-details p-5 mx-auto w-75">
+        <div class="pack-details mx-auto w-75">
             <div class="itinerary-card w-100 modal-bg">
-                <h4 class="">Reservations and Bookings</h4>
+                <div class="heading-fs">Reservations and Bookings</div>
             </div>
-    <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Ref. Id</th>
-            <th scope="col">Trip Name</th>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
-            <th scope="col">Email</th>
-            <th scope="col">Status</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">TAS-001</th>
-            <td>South Africa - 3D/4N</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>mark@gmail.com</td>
-            <td>Pending</td>
-            <td>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="btn btn-success"><i class="fa fa-edit"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">TAS-002</th>
-            <td>South Africa - 3D/4N</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>jacob@gmail.com</td>
-            <td>Confirmed</td>
-            <td>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="btn btn-success"><i class="fa fa-edit"></i></button>
-              </td>
-          </tr>
-        </tbody>
-    </table>
+            <div class="table-container">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ref. Id</th>
+                        <th scope="col">Trip Name</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">TAS-001</th>
+                        <td>South Africa - 3D/4N</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>mark@gmail.com</td>
+                        <td>Pending</td>
+                        <td>
+                            <button type="button edit-button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">TAS-002</th>
+                        <td>South Africa - 3D/4N</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>jacob@gmail.com</td>
+                        <td>Confirmed</td>
+                        <td>
+                            <button type="button edit-button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                          </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+
     </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg edit-booking-modal" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content booking-details">
                 <div class="modal-header modal-bg">
                     <h5 class="modal-title" id="exampleModalLongTitle">Reservation Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <!-- <div class="modal-body"> -->
                     <div class="modal-body">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4 class="">South Africa - 3D/4N Trip </h4>
+                                <div class="heading-fs">South Africa - 3D/4N Trip </div>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="button" class="btn btn-success mx-2"><a href="Images/CostSheet.pdf"><i style="color:white" class="fa fa-dollar"></i></a></button>
-                                <button type="submit" class="btn btn-primary day-title mx-2" data-bs-toggle="modal" data-bs-target="#quote" onclick="validateForm()">Send Quote</button>
-                                <button type="submit" class="btn btn-primary day-title mx-2" data-bs-toggle="modal" data-bs-target="#confirm" onclick="validateForm()">Confirm and Send Email</button>
+                                <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#quote" onclick="validateForm()">Send Quote</button>
+                                <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#confirm" onclick="validateForm()">Confirm and Send Email</button>
                             </div>
                         </div>
 
                         <div class="mt-3 tabs">
                             <ul class="nav nav-tabs" id="tripTabs" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link theme-text-color active" id="tourist-tab" data-bs-toggle="tab" data-bs-target="#tourist" type="button" role="tab" aria-controls="tourist" aria-selected="true">
+                                    <button class="nav-link theme-text-color active text-fs" id="tourist-tab" data-bs-toggle="tab" data-bs-target="#tourist" type="button" role="tab" aria-controls="tourist" aria-selected="true">
                                         Tourist Details
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link  theme-text-color" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#itinerary" type="button" role="tab" aria-controls="itinerary" aria-selected="false">
+                                    <button class="nav-link  theme-text-color  text-fs" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#itinerary" type="button" role="tab" aria-controls="itinerary" aria-selected="false">
                                         Itinerary Details
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link  theme-text-color" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                    <button class="nav-link  theme-text-color  text-fs" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">
                                         Payment Details
                                     </button>
                                 </li>
                             </ul>
                         </div>
                         <div class="d-flex flex-column justify-content-between">
-                            <div class="tab-content mt-3" id="tripTabContent">
+                            <div class="tab-content mt-1" id="tripTabContent">
                                 <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="tourist-tab">
                                     <form action="">
                                         <div class="d-flex mt-3">
@@ -229,16 +227,16 @@
                                 </div>
                                 <div class="tab-pane fade itienary-info" id="itinerary" role="tabpanel" aria-labelledby="itinerary-tab">
                                     <p class="text-center">
-                                       <b> South Africa</b>
+                                       <b class="heading-fs"> South Africa</b>
                                     <p>
                                     <div>
-                                        <p>
+                                        <p class="text-fs">
                                             <b>
                                                Day 1:
                                             </b>
                                             Arrival & City Exploration
                                         </p>
-                                        <ul>
+                                        <ul class="text-fs">
                                             <li>
                                                 Luxury sanctuary for business & leisure
                                             </li>
@@ -251,13 +249,13 @@
                                         </ul>
                                     </div>
                                     <div>
-                                        <p>
+                                        <p class="text-fs">
                                             <b>
                                                Day 2:
                                             </b>
                                             Adventure & Outdoor Activities
                                         </p>
-                                        <ul>
+                                        <ul class="text-fs">
                                             <li>
                                                 Luxury lodge in Zambezi National Park
                                             </li>
@@ -271,13 +269,13 @@
 
                                     </div>
                                     <div>
-                                        <p>
+                                        <p class="text-fs">
                                             <b>
                                                Day 3:
                                             </b>
                                             Relaxation & Departure
                                         </p>
-                                        <ul>
+                                        <ul class="text-fs">
                                             <li>
                                                 Luxury stay near Hout Bay
                                             </li>
@@ -292,7 +290,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
                                     <div>
-                                        <h5>Payment Breakdown</h5>
+                                        <div class="heading-fs">Payment Breakdown</div>
             <table class="table table-bordered">
                 <thead>
                     <tr class="text-center">
@@ -394,14 +392,14 @@
                             </div>
                         </div> 
                     </div>
-                </div>
+                <!-- </div> -->
                 <div class="modal-footer">
                     <div class="d-flex justify-content-end">
                         <div>
-                            <button type="button" class="btn btn-secondary font-sizes mx-3" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary close-btn mx-3" data-bs-dismiss="modal">Close</button>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary day-title  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="validateForm()">Update</button>
+                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="validateForm()">Update</button>
                         </div>
                     </div>
                   </div>
@@ -413,10 +411,10 @@
         <div class="modal-content">
             <div class="modal-header modal-bg">
                 <h5 class="modal-title" id="exampleModalLongTitle">Quote and Payment</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>
+                <p class="text-fs">
                     An email has been sent with the Cost Sheet and Payment Link.
                     <br/><br/>
                     You can download the cost sheet for your reference by clicking <a href="Images/CostSheet.pdf">here</a>.
@@ -430,7 +428,7 @@
         <div class="modal-content">
             <div class="modal-header modal-bg">
                 <h5 class="modal-title" id="exampleModalLongTitle">Booking Confirmation</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>
