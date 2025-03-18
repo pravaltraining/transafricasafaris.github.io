@@ -49,7 +49,10 @@
             <div class="itinerary-card w-100 modal-bg">
                 <div class="heading-fs">Reservations and Bookings</div>
             </div>
-            <div class="table-container">
+            <div class="new-reservation d-flex justify-content-end mb-2">
+                <button type="button" class="btn btn-success tas-button mx-2" data-bs-toggle="modal" data-bs-target="#newbooking"><i class="bi bi-plus-square-fill"></i>New Reversation</button>
+            </div>
+            <div class="table-container" >
                 <table class="table table-bordered">
                     <thead>
                       <tr>
@@ -62,7 +65,7 @@
                         <th scope="col">Actions</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="bookings">
                       <tr>
                         <th scope="row">TAS-001</th>
                         <td>South Africa - 3D/4N</td>
@@ -98,311 +101,558 @@
                     <h5 class="modal-title" id="exampleModalLongTitle">Reservation Details</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- <div class="modal-body"> -->
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <div class="heading-fs">South Africa - 3D/4N Trip </div>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-success mx-2"><a href="Images/CostSheet.pdf"><i style="color:white" class="fa fa-dollar"></i></a></button>
-                                <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#quote" onclick="validateForm()">Send Quote</button>
-                                <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#confirm" onclick="validateForm()">Confirm and Send Email</button>
-                            </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div class="heading-fs">South Africa - 3D/4N Trip </div>
                         </div>
-
-                        <div class="mt-3 tabs">
-                            <ul class="nav nav-tabs" id="tripTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link theme-text-color active text-fs" id="tourist-tab" data-bs-toggle="tab" data-bs-target="#tourist" type="button" role="tab" aria-controls="tourist" aria-selected="true">
-                                        Tourist Details
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link  theme-text-color  text-fs" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#itinerary" type="button" role="tab" aria-controls="itinerary" aria-selected="false">
-                                        Itinerary Details
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link  theme-text-color  text-fs" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">
-                                        Payment Details
-                                    </button>
-                                </li>
-                            </ul>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-success mx-2"><a href="Images/CostSheet.pdf"><i style="color:white" class="fa fa-dollar"></i></a></button>
+                            <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#quote" onclick="validateForm()">Send Quote</button>
+                            <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#confirm" onclick="validateForm()">Confirm and Send Email</button>
                         </div>
-                        <div class="d-flex flex-column justify-content-between">
-                            <div class="tab-content mt-1" id="tripTabContent">
-                                <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="tourist-tab">
-                                    <form action="">
-                                        <div class="d-flex mt-3">
-                                            <div class="form-group">
-                                                <label for="firstName">First Name</label>
-                                                <input type="text" class="form-control" id="firstName" placeholder="Mark" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="lastName">Last Name</label>
-                                                <input type="text" class="form-control" id="lastName" placeholder="Otto" required>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="d-flex mt-3">
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="text" class="form-control" id="email" placeholder="mark@gmail.com" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="phone">Phone Number</label>
-                                                <input type="number" class="form-control" id="phone" placeholder="+1-937-000-0001" required>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="d-flex mt-3">
-                                            <div class="form-group">
-                                                <label for="country">Country</label>
-                                                <input type="text" class="form-control" id="country" placeholder="USA" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pickup">Pickup Location</label>
-                                                <input type="text" class="form-control" id="pickup" placeholder="SA Airport" required>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="d-flex mt-3">
-                                            <div class="form-group">
-                                                <label for="adults">Number of Adults</label>
-                                                <input type="number" class="form-control" id="adults" placeholder="2" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="children">Number of Children</label>
-                                                <input type="number" class="form-control" id="children" placeholder="2" required>
-                                            </div>
-                                        </div>
-            
-                                        <div class="d-flex mt-3">
-                                            <div class="form-group">
-                                                <label for="startDt">Check-In/Start Date</label>
-                                                <input type="date" class="form-control" id="adults" placeholder="2" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="endDt">Check-Out/End Date</label>
-                                                <input type="date" class="form-control" id="children" placeholder="2" required>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="d-flex mt-3">
-                                            <div class="form-group">
-                                                <label>Accommodation Preferences</label>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="accommodation" id="hotel" required>
-                                                    <label class="form-check-label" for="hotel" selected>Hotel</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="accommodation" id="resort" >
-                                                    <label class="form-check-label" for="resort">Resort</label>
-                                                </div>
-                                            </div>
-                                
-                                            <div class="form-group">
-                                                <label>Travelling Preferences - Flight</label>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flightClass" id="business" required >
-                                                    <label class="form-check-label" for="business">Business</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flightClass" id="firstClass">
-                                                    <label class="form-check-label" for="firstClass">First Class</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flightClass" id="premiumEconomy">
-                                                    <label class="form-check-label" for="premiumEconomy">Premium Economy</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flightClass" id="economy">
-                                                    <label class="form-check-label" for="economy">Economy</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-    
-                                </div>
-                                <div class="tab-pane fade itienary-info" id="itinerary" role="tabpanel" aria-labelledby="itinerary-tab">
-                                    <p class="text-center">
-                                       <b class="heading-fs"> South Africa</b>
-                                    <p>
-                                    <div>
-                                        <p class="text-fs">
-                                            <b>
-                                               Day 1:
-                                            </b>
-                                            Arrival & City Exploration
-                                        </p>
-                                        <ul class="text-fs">
-                                            <li>
-                                                Luxury sanctuary for business & leisure
-                                            </li>
-                                            <li>
-                                                Tranquil yet near Sandton hub
-                                            </li>
-                                            <li>
-                                                World-class hospitality, royal-worthy stay
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <p class="text-fs">
-                                            <b>
-                                               Day 2:
-                                            </b>
-                                            Adventure & Outdoor Activities
-                                        </p>
-                                        <ul class="text-fs">
-                                            <li>
-                                                Luxury lodge in Zambezi National Park
-                                            </li>
-                                            <li>
-                                                Stunning views of Victoria Falls
-                                            </li>
-                                            <li>
-                                                Wildlife, fine dining, and adventure
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                    <div>
-                                        <p class="text-fs">
-                                            <b>
-                                               Day 3:
-                                            </b>
-                                            Relaxation & Departure
-                                        </p>
-                                        <ul class="text-fs">
-                                            <li>
-                                                Luxury stay near Hout Bay
-                                            </li>
-                                            <li>
-                                                Secluded beach and ocean views
-                                            </li>
-                                            <li>
-                                                Rich biodiversity in National Park
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
-                                    <div>
-                                        <div class="heading-fs">Payment Breakdown</div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="text-center">
-                        <th colspan="3">Total price for all itineraries</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   <tr>
-                        <th rowspan="2" class="text-center">
-                            TAS Cost:
-                        </th>
-                        <td>
-                            USD  
-                        </td>
-                        <td>
-                            271.00 
-                        </td>
-                   </tr>
-                   <tr>
-                        <td>
-                            ZAR 
-                        </td>   
-                        <td>
-                            41,030.65 
-                        </td>
-                       
-                   </tr>
-                   <tr>
-                    <th rowspan="2" class="text-center" >
-                        Agent Cost: 
-                    </th>
-                    <td>
-                        USD  
-                    </td>
-                    <td>
-                        311.68  
-                    </td>
-               </tr>
-               <tr>
-                <td rowspan="2" >
-                    ZAR
-                </td>
-                <td>
-                    58,961.71
-                </td>
-           </tr>
-                </tbody>
-            </table>
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="text-center">
-                        <th colspan="3">Total price for all itineraries excluding flights</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   <tr>
-                        <th rowspan="2" class="text-center">
-                            TAS Cost:
-                        </th>
-                        <td>
-                            USD  
-                        </td>
-                        <td>
-                            271.00
-                        </td>
-                   </tr>
-                   <tr>
-                        <td>
-                            ZAR 
-                        </td>   
-                        <td>
-                            40,176.65
-                        </td>
-                       
-                   </tr>
-                   <tr>
-                    <th rowspan="2" class="text-center">
-                        Agent Cost: 
-                    </th>
-                    <td>
-                        USD  
-                    </td>
-                    <td>
-                        311.68
-                    </td>
-               </tr>
-               <tr>
-                <td rowspan="2">
-                    ZAR
-                </td>
-                <td>
-                    46,548.41 
-                </td>
-           </tr>
-                </tbody>
-            </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
                     </div>
-                <!-- </div> -->
+
+                    <div class="mt-3 tabs">
+                        <ul class="nav nav-tabs" id="tripTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link theme-text-color active text-fs" id="tourist-tab" data-bs-toggle="tab" data-bs-target="#tourist" type="button" role="tab" aria-controls="tourist" aria-selected="true">
+                                    Tourist Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link  theme-text-color  text-fs" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#itinerary" type="button" role="tab" aria-controls="itinerary" aria-selected="false">
+                                    Itinerary Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link  theme-text-color  text-fs" id="transport-tab" data-bs-toggle="tab" data-bs-target="#transport" type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                    Transport Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link  theme-text-color  text-fs" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                    Payment Details
+                                </button>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column justify-content-between">
+                        <div class="tab-content mt-1" id="tripTabContent">
+                            <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="tourist-tab">
+                                <form action="">
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" placeholder="Mark" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" placeholder="Otto" required>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="email" placeholder="mark@gmail.com" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phoneNumber">Phone Number</label>
+                                            <input type="number" class="form-control" id="phoneNumber" placeholder="+1-937-000-0001" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="adults">Number of Adults</label>
+                                            <input type="number" class="form-control" id="adultsCount" placeholder="2" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="children">Number of Children</label>
+                                            <input type="number" class="form-control" id="childrenCount" placeholder="2" required>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="adults">Check-In /Starting Date</label>
+                                            <input type="date" class="form-control" id="checkIn" placeholder="2" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="children">Check-Out/End Date</label>
+                                            <input type="date" class="form-control" id="checkOut" placeholder="2" required>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <input type="text" class="form-control" id="country" placeholder="USA" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pickup">Pickup Location</label>
+                                            <input type="text" class="form-control" id="pickupLocation" placeholder="SA Airport" required>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade itienary-info" id="itinerary" role="tabpanel" aria-labelledby="itinerary-tab">
+                                <div class="d-flex justify-content-between p-2">
+                                    <div class="fw-bold text-fs">
+                                        Select Itinerary
+                                    </div>
+                                    <div>
+                                        <select class="form-select" aria-label="Select Destination" id="tripName" onchange="updateItinerary2(this.value)">
+                                            <option >Select Itinerary</option>
+                                            <option value="southafrica" selected>South Africa - 3D/4N Trip</option>
+                                            <option value="kenya">Kenya - 3D/4N Trip</option>
+                                            <option value="rwanda">Rwanda - 3D/4N Trip</option>
+                                            <option value="indian-ocean-islands">Indian Ocean Islands - 3D/4N Trip</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="southafrica" class="southafrica">
+                                    <p class="text-center">
+                                        <b class="heading-fs"> South Africa</b>
+                                        <p>
+                                        <div>
+                                            <p class="text-fs">
+                                                <b>
+                                                Day 1:
+                                                </b>
+                                                Arrival & City Exploration
+                                            </p>
+                                            <ul class="text-fs">
+                                                <li>
+                                                    Luxury sanctuary for business & leisure
+                                                </li>
+                                                <li>
+                                                    Tranquil yet near Sandton hub
+                                                </li>
+                                                <li>
+                                                    World-class hospitality, royal-worthy stay
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <p class="text-fs">
+                                                <b>
+                                                Day 2:
+                                                </b>
+                                                Adventure & Outdoor Activities
+                                            </p>
+                                            <ul class="text-fs">
+                                                <li>
+                                                    Luxury lodge in Zambezi National Park
+                                                </li>
+                                                <li>
+                                                    Stunning views of Victoria Falls
+                                                </li>
+                                                <li>
+                                                    Wildlife, fine dining, and adventure
+                                                </li>
+                                            </ul>
+    
+                                        </div>
+                                        <div>
+                                            <p class="text-fs">
+                                                <b>
+                                                Day 3:
+                                                </b>
+                                                Relaxation & Departure
+                                            </p>
+                                            <ul class="text-fs">
+                                                <li>
+                                                    Luxury stay near Hout Bay
+                                                </li>
+                                                <li>
+                                                    Secluded beach and ocean views
+                                                </li>
+                                                <li>
+                                                    Rich biodiversity in National Park
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </div>
+                                <div id="kenya" class="d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs">Kenya</b>
+                                    </p>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 1:</b> Nairobi City Tour
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Luxury hotel stay</li>
+                                            <li>Visit Giraffe Centre</li>
+                                            <li>Nairobi National Park safari</li>
+                                            <li>Explore Bomas of Kenya</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 2:</b> Maasai Mara Safari
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Game drive adventure</li>
+                                            <li>Luxury safari lodge</li>
+                                            <li>Big Five spotting</li>
+                                            <li>Maasai cultural visit</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 3:</b> Lake Naivasha Trip
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Boat safari tour</li>
+                                            <li>Spot hippos & birds</li>
+                                            <li>Walking safari experience</li>
+                                            <li>Return to Nairobi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="rwanda" class="d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs">Rwanda</b>
+                                    </p>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 1:</b> Kigali City Tour
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Genocide Memorial visit</li>
+                                            <li>Explore local markets</li>
+                                            <li>Traditional Rwandan dinner</li>
+                                            <li>Luxury hotel stay</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 2:</b> Volcanoes National Park
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Gorilla trekking adventure</li>
+                                            <li>Scenic mountain views</li>
+                                            <li>Golden monkey tracking</li>
+                                            <li>Luxury lodge experience</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 3:</b> Lake Kivu Retreat
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Boat cruise adventure</li>
+                                            <li>Relax on sandy beaches</li>
+                                            <li>Kayaking & fishing</li>
+                                            <li>Return to Kigali</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="indian-ocean-islands" class="d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs">Indian Ocean Islands</b>
+                                    </p>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 1:</b> Beach & Relaxation
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>White sandy beaches</li>
+                                            <li>Luxury beachfront resort</li>
+                                            <li>Sunset cruise experience</li>
+                                            <li>Fine seafood dining</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 2:</b> Adventure & Water Sports
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Snorkeling & diving</li>
+                                            <li>Dolphin watching tour</li>
+                                            <li>Island hopping experience</li>
+                                            <li>Private beach picnic</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 3:</b> Culture & Exploration
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Explore local markets</li>
+                                            <li>Visit historic sites</li>
+                                            <li>Nature reserve hike</li>
+                                            <li>Farewell island dinner</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+                                <div>
+                                    <div class="heading-fs">Payment Breakdown</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th colspan="3">Total price for all itineraries</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="2" class="text-center">
+                        TAS Cost:
+                    </th>
+                    <td>
+                        USD  
+                    </td>
+                    <td>
+                        271.00 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ZAR 
+                    </td>   
+                    <td>
+                        41,030.65 
+                    </td>
+                    
+                </tr>
+                <tr>
+                <th rowspan="2" class="text-center" >
+                    Agent Cost: 
+                </th>
+                <td>
+                    USD  
+                </td>
+                <td>
+                    311.68  
+                </td>
+            </tr>
+            <tr>
+            <td rowspan="2" >
+                ZAR
+            </td>
+            <td>
+                58,961.71
+            </td>
+        </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th colspan="3">Total price for all itineraries excluding flights</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="2" class="text-center">
+                        TAS Cost:
+                    </th>
+                    <td>
+                        USD  
+                    </td>
+                    <td>
+                        271.00
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ZAR 
+                    </td>   
+                    <td>
+                        40,176.65
+                    </td>
+                    
+                </tr>
+                <tr>
+                <th rowspan="2" class="text-center">
+                    Agent Cost: 
+                </th>
+                <td>
+                    USD  
+                </td>
+                <td>
+                    311.68
+                </td>
+            </tr>
+            <tr>
+            <td rowspan="2">
+                ZAR
+            </td>
+            <td>
+                46,548.41 
+            </td>
+        </tr>
+            </tbody>
+        </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade itienary-info" id="transport" role="tabpanel" aria-labelledby="transport-tab">
+                                <div class="transport-details p-2">
+                                    <div class="text-fs fw-bold text-center p-3">
+                                        <div>
+                                            Pickup Details
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Starting Date</label>
+                                            <input type="date" class="form-control" id="date" aria-describedby="date" value="10-04-2025">
+                                          </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Departure Country
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option >Select Country</option>
+                                                    <option value="usa">USA</option>
+                                                    <option value="india">India</option>
+                                                    <option value="canada" selected>
+                                                        Canada</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Choose Airport
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option>Choose Airport</option>
+                                                    <option value="usa">Dallas Fort Worth International Airport (DFW)</option>
+                                                    <option value="india" selected>Hartsfield-Jackson Atlanta International Airport</option>
+                                                    <option value="canada">
+                                                        Calgary International Airport (YYC)</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                            <small>Available airports in your country</small>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Service Available Airlines
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option >Select airlines</option>
+                                                    <option value="southafrica" selected>Ethiopian Airlines</option>
+                                                    <option value="kenya">Kenya Airways</option>
+                                                    <option value="rwanda">
+                                                        Southwest Airlines</option>
+                                                    <option value="indian-ocean-islands">Indian Airlines</option>
+                                                    <option value="indian-ocean-islands">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Flight Seat Preferences
+                                            </div>
+                                            <select class="form-select" aria-label="Select Destination">
+                                                <option >Flight Seat Preferences</option>
+                                                <option value="Business Class" selected>Business Class</option>
+                                                <option value="First Class">First Class</option>
+                                                <option value="Premium Economy">
+                                                    Premium Economy</option>
+                                                <option value="Economy">Economy</option>
+                                            </select>
+                                        </div>
+                                    </div> 
+                                    <div class="text-fs fw-bold text-center p-3">
+                                        <div>
+                                            Drop Details
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Select Droping Country
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Select Country</option>
+                                                    <option value="usa">USA</option>
+                                                    <option value="india">India</option>
+                                                    <option value="canada" selected>
+                                                        Canada</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Choose Airports
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Choose Airport</option>
+                                                    <option value="usa">Dallas Fort Worth International Airport (DFW)</option>
+                                                    <option value="india" selected>Hartsfield-Jackson Atlanta International Airport</option>
+                                                    <option value="canada" >
+                                                        Calgary International Airport (YYC)</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                            <small>Available airport in your country</small>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Service Available Airlines
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination">
+                                                    <option selected>Select airlines</option>
+                                                    <option value="southafrica" selected>Ethiopian Airlines</option>
+                                                    <option value="kenya">Kenya Airways</option>
+                                                    <option value="rwanda">
+                                                        Southwest Airlines</option>
+                                                    <option value="indian-ocean-islands">Indian Airlines</option>
+                                                    <option value="indian-ocean-islands">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Flight Seat Preferences
+                                            </div>
+                                            <select class="form-select" aria-label="Select Destination">
+                                                <option selected>Flight Seat Preferences</option>
+                                                <option value="Business Class" selected>Business Class</option>
+                                                <option value="First Class">First Class</option>
+                                                <option value="Premium Economy">
+                                                    Premium Economy</option>
+                                                <option value="Economy">Economy</option>
+                                            </select>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>              
+                        </div>
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <div class="d-flex justify-content-end">
                         <div>
                             <button type="button" class="btn btn-secondary close-btn mx-3" data-bs-dismiss="modal">Close</button>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="validateForm()">Update</button>
+                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="createNewBooking()">Update</button>
                         </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
@@ -435,6 +685,568 @@
                     The booking has been confirmed and an email has been sent.</p>
             </div>
         </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg edit-booking-modal" id="newbooking" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content booking-details">
+                <div class="modal-header modal-bg">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Reservation Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div class="heading-fs">South Africa - 3D/4N Trip </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-success mx-2"><a href="Images/CostSheet.pdf"><i style="color:white" class="fa fa-dollar"></i></a></button>
+                            <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#quote" onclick="validateForm()">Send Quote</button>
+                            <button type="submit" class="btn btn-primary tas-button mx-2" data-bs-toggle="modal" data-bs-target="#confirm" onclick="validateForm()">Confirm and Send Email</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 tabs">
+                        <ul class="nav nav-tabs" id="tripTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link theme-text-color active text-fs" id="tourist-tab-new" data-bs-toggle="tab" data-bs-target="#tourist-new" type="button" role="tab" aria-controls="tourist" aria-selected="true">
+                                    Tourist Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link  theme-text-color  text-fs" id="itinerary-tab-new" data-bs-toggle="tab" data-bs-target="#itinerary-new" type="button" role="tab" aria-controls="itinerary" aria-selected="false">
+                                    Itinerary Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link  theme-text-color  text-fs" id="transport-tab-new" data-bs-toggle="tab" data-bs-target="#transport-new" type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                    Transport Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link  theme-text-color  text-fs" id="payment-tab-new" data-bs-toggle="tab" data-bs-target="#payment-new" type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                    Payment Details
+                                </button>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column justify-content-between">
+                        <div class="tab-content mt-1" id="tripTabContent">
+                            <div class="tab-pane fade show active" id="tourist-new" role="tabpanel" aria-labelledby="tourist-tab-new">
+                                <form action="">
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="email"  required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phoneNumber">Phone Number</label>
+                                            <input type="number" class="form-control" id="phoneNumber"  required>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="adults">Number of Adults</label>
+                                            <input type="number" class="form-control" id="adultsCount"  required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="children">Number of Children</label>
+                                            <input type="number" class="form-control" id="childrenCount" required>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="adults">Check-In /Starting Date</label>
+                                            <input type="date" class="form-control" id="checkIn"  required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="children">Check-Out/End Date</label>
+                                            <input type="date" class="form-control" id="checkOut" required>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-3">
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <input type="text" class="form-control" id="country"  required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pickup">Pickup Location</label>
+                                            <input type="text" class="form-control" id="pickupLocation"  required>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade itienary-info" id="itinerary-new" role="tabpanel" aria-labelledby="itinerary-tab-new">
+                                <div class="d-flex justify-content-between p-2">
+                                    <div class="fw-bold text-fs">
+                                        Select Itinerary
+                                    </div>
+                                    <div>
+                                        <select class="form-select" aria-label="Select Destination" id="tripName" onchange="updateItinerary(this.value)">
+                                            <option selected>Select Itinerary</option>
+                                            <option value="southafrica-new">South Africa - 3D/4N Trip</option>
+                                            <option value="kenya-new">Kenya - 3D/4N Trip</option>
+                                            <option value="rwanda-new">Rwanda - 3D/4N Trip</option>
+                                            <option value="indian-ocean-islands-new">Indian Ocean Islands - 3D/4N Trip</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="southafrica-new" class="southafrica d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs"> South Africa</b>
+                                        <p>
+                                        <div>
+                                            <p class="text-fs">
+                                                <b>
+                                                Day 1:
+                                                </b>
+                                                Arrival & City Exploration
+                                            </p>
+                                            <ul class="text-fs">
+                                                <li>
+                                                    Luxury sanctuary for business & leisure
+                                                </li>
+                                                <li>
+                                                    Tranquil yet near Sandton hub
+                                                </li>
+                                                <li>
+                                                    World-class hospitality, royal-worthy stay
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <p class="text-fs">
+                                                <b>
+                                                Day 2:
+                                                </b>
+                                                Adventure & Outdoor Activities
+                                            </p>
+                                            <ul class="text-fs">
+                                                <li>
+                                                    Luxury lodge in Zambezi National Park
+                                                </li>
+                                                <li>
+                                                    Stunning views of Victoria Falls
+                                                </li>
+                                                <li>
+                                                    Wildlife, fine dining, and adventure
+                                                </li>
+                                            </ul>
+    
+                                        </div>
+                                        <div>
+                                            <p class="text-fs">
+                                                <b>
+                                                Day 3:
+                                                </b>
+                                                Relaxation & Departure
+                                            </p>
+                                            <ul class="text-fs">
+                                                <li>
+                                                    Luxury stay near Hout Bay
+                                                </li>
+                                                <li>
+                                                    Secluded beach and ocean views
+                                                </li>
+                                                <li>
+                                                    Rich biodiversity in National Park
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </div>
+                                <div id="kenya-new" class="d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs">Kenya</b>
+                                    </p>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 1:</b> Nairobi City Tour
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Luxury hotel stay</li>
+                                            <li>Visit Giraffe Centre</li>
+                                            <li>Nairobi National Park safari</li>
+                                            <li>Explore Bomas of Kenya</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 2:</b> Maasai Mara Safari
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Game drive adventure</li>
+                                            <li>Luxury safari lodge</li>
+                                            <li>Big Five spotting</li>
+                                            <li>Maasai cultural visit</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 3:</b> Lake Naivasha Trip
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Boat safari tour</li>
+                                            <li>Spot hippos & birds</li>
+                                            <li>Walking safari experience</li>
+                                            <li>Return to Nairobi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="rwanda-new" class="d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs">Rwanda</b>
+                                    </p>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 1:</b> Kigali City Tour
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Genocide Memorial visit</li>
+                                            <li>Explore local markets</li>
+                                            <li>Traditional Rwandan dinner</li>
+                                            <li>Luxury hotel stay</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 2:</b> Volcanoes National Park
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Gorilla trekking adventure</li>
+                                            <li>Scenic mountain views</li>
+                                            <li>Golden monkey tracking</li>
+                                            <li>Luxury lodge experience</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 3:</b> Lake Kivu Retreat
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Boat cruise adventure</li>
+                                            <li>Relax on sandy beaches</li>
+                                            <li>Kayaking & fishing</li>
+                                            <li>Return to Kigali</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="indian-ocean-islands-new" class="d-none">
+                                    <p class="text-center">
+                                        <b class="heading-fs">Indian Ocean Islands</b>
+                                    </p>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 1:</b> Beach & Relaxation
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>White sandy beaches</li>
+                                            <li>Luxury beachfront resort</li>
+                                            <li>Sunset cruise experience</li>
+                                            <li>Fine seafood dining</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 2:</b> Adventure & Water Sports
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Snorkeling & diving</li>
+                                            <li>Dolphin watching tour</li>
+                                            <li>Island hopping experience</li>
+                                            <li>Private beach picnic</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-fs">
+                                            <b>Day 3:</b> Culture & Exploration
+                                        </p>
+                                        <ul class="text-fs">
+                                            <li>Explore local markets</li>
+                                            <li>Visit historic sites</li>
+                                            <li>Nature reserve hike</li>
+                                            <li>Farewell island dinner</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="payment-new" role="tabpanel" aria-labelledby="payment-tab-new">
+                                <div>
+                                    <div class="heading-fs">Payment Breakdown</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th colspan="3">Total price for all itineraries</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="2" class="text-center">
+                        TAS Cost:
+                    </th>
+                    <td>
+                        USD  
+                    </td>
+                    <td>
+                        271.00 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ZAR 
+                    </td>   
+                    <td>
+                        41,030.65 
+                    </td>
+                    
+                </tr>
+                <tr>
+                <th rowspan="2" class="text-center" >
+                    Agent Cost: 
+                </th>
+                <td>
+                    USD  
+                </td>
+                <td>
+                    311.68  
+                </td>
+            </tr>
+            <tr>
+            <td rowspan="2" >
+                ZAR
+            </td>
+            <td>
+                58,961.71
+            </td>
+        </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th colspan="3">Total price for all itineraries excluding flights</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="2" class="text-center">
+                        TAS Cost:
+                    </th>
+                    <td>
+                        USD  
+                    </td>
+                    <td>
+                        271.00
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ZAR 
+                    </td>   
+                    <td>
+                        40,176.65
+                    </td>
+                    
+                </tr>
+                <tr>
+                <th rowspan="2" class="text-center">
+                    Agent Cost: 
+                </th>
+                <td>
+                    USD  
+                </td>
+                <td>
+                    311.68
+                </td>
+            </tr>
+            <tr>
+            <td rowspan="2">
+                ZAR
+            </td>
+            <td>
+                46,548.41 
+            </td>
+        </tr>
+            </tbody>
+        </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade itienary-info" id="transport-new" role="tabpanel" aria-labelledby="transport-tab-new">
+                                <div class="transport-details p-2">
+                                    <div class="text-fs fw-bold text-center p-3">
+                                        <div>
+                                            Pickup Details
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Starting Date</label>
+                                            <input type="date" class="form-control" id="date" aria-describedby="date">
+                                          </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Departure Country
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Select Country</option>
+                                                    <option value="usa">USA</option>
+                                                    <option value="india">India</option>
+                                                    <option value="canada">
+                                                        Canada</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Choose Airport
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Choose Airport</option>
+                                                    <option value="usa">Dallas Fort Worth International Airport (DFW)</option>
+                                                    <option value="india">Hartsfield-Jackson Atlanta International Airport</option>
+                                                    <option value="canada">
+                                                        Calgary International Airport (YYC)</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                            <small>Available airports in your country</small>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Service Available Airlines
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Select airlines</option>
+                                                    <option value="southafrica">Ethiopian Airlines</option>
+                                                    <option value="kenya">Kenya Airways</option>
+                                                    <option value="rwanda">
+                                                        Southwest Airlines</option>
+                                                    <option value="indian-ocean-islands">Indian Airlines</option>
+                                                    <option value="indian-ocean-islands">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Flight Seat Preferences
+                                            </div>
+                                            <select class="form-select" aria-label="Select Destination">
+                                                <option selected>Flight Seat Preferences</option>
+                                                <option value="Business Class">Business Class</option>
+                                                <option value="First Class">First Class</option>
+                                                <option value="Premium Economy">
+                                                    Premium Economy</option>
+                                                <option value="Economy">Economy</option>
+                                            </select>
+                                        </div>
+                                    </div> 
+                                    <div class="text-fs fw-bold text-center p-3">
+                                        <div>
+                                            Drop Details
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Select Droping Country
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Select Country</option>
+                                                    <option value="usa">USA</option>
+                                                    <option value="india">India</option>
+                                                    <option value="canada">
+                                                        Canada</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Choose Airports
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination" onchange="updateItinerary(this.value)">
+                                                    <option selected>Choose Airport</option>
+                                                    <option value="usa">Dallas Fort Worth International Airport (DFW)</option>
+                                                    <option value="india">Hartsfield-Jackson Atlanta International Airport</option>
+                                                    <option value="canada">
+                                                        Calgary International Airport (YYC)</option>
+                                                    <option value="others">much more options</option>
+                                                </select>
+                                            </div>
+                                            <small>Available airport in your country</small>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Service Available Airlines
+                                            </div>
+                                            <div>
+                                                <select class="form-select" aria-label="Select Destination">
+                                                    <option selected>Select airlines</option>
+                                                    <option value="southafrica">Ethiopian Airlines</option>
+                                                    <option value="kenya">Kenya Airways</option>
+                                                    <option value="rwanda">
+                                                        Southwest Airlines</option>
+                                                    <option value="indian-ocean-islands">Indian Airlines</option>
+                                                    <option value="indian-ocean-islands">much more options</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-6">
+                                            <div class="fw-bold text-fs">
+                                                Flight Seat Preferences
+                                            </div>
+                                            <select class="form-select" aria-label="Select Destination">
+                                                <option selected>Flight Seat Preferences</option>
+                                                <option value="Business Class">Business Class</option>
+                                                <option value="First Class">First Class</option>
+                                                <option value="Premium Economy">
+                                                    Premium Economy</option>
+                                                <option value="Economy">Economy</option>
+                                            </select>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>              
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-end">
+                        <div>
+                            <button type="button" class="btn btn-secondary close-btn mx-3" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary tas-button  mx-3" data-bs-toggle="modal" data-bs-target="#confirmation" onclick="createNewBooking()">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
