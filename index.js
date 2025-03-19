@@ -89,6 +89,18 @@ function createNewBooking() {
         bookingData[id] = document.getElementById(id).value;
     });
 
+
+}
+
+var count =0;
+function addNewBooking(){
+    count++;
+    var id = 'newbookingrecord'+count;
+    var newBooking = document.getElementById(id);
+    if(newBooking)
+        newBooking.classList.remove('d-none');
+    else
+        return;
 }
 
 function uploadBookingTable() {
